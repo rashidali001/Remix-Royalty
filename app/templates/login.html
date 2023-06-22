@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<a href="{{ url_for('home' )}}" class="return"><img src="{{ url_for('static', filename='images/back.svg')}}" alt="Go back"> Back</a>
+
+<div class="form">
+    <p class="header">LOG IN</p>
+    <form action="" id="loginform" method="post">
+        <input type="email" placeholder="Email ..." name="email">
+        <input type="password" placeholder="Password ..." name="password">
+        <div class="form_concern">
+            <p>Not a user? <a href="{{ url_for('register') }}">Register.</a></p>
+            <a href="#">Forgot password?</a>
+        </div>        
+        <input type="submit" id="login_submit">
+
+    </form>
+</div>
+
+{% endblock %}

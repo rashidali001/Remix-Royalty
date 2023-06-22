@@ -1,0 +1,171 @@
+/* Below are media queries for the index.html page */
+@media (min-width:600px){
+    section.four{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    div.benefit_four{
+        width: 60%;
+    }
+    div.four_statistics{
+        width: 40%;
+    }
+    p.benefit_content{
+        margin: 1rem 0;
+    }
+    div.stat_container > h3{
+        font-size: 2.5rem;
+    }
+    section.five > h2{
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width:750px){
+    div.benefit_four,div.four_statistics{
+        height: auto;
+    }
+    div.benefit_four{
+        width: 50%;
+    }
+}
+
+
+
+@media (min-width:650px) {
+
+    /** section one media queries */
+    section.one{
+        background: linear-gradient(45deg, #d2001a, #7462ff,#f48e21,#23d5ab);
+        background-size: 300% 300%;
+        animation: color 12s ease-in-out infinite;
+        padding: 2% 5% 5% 5%;
+        position: relative;
+        z-index: 10;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
+        margin-bottom: -10vw;
+    }
+    section.one-child{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-top: 20px;
+        margin-bottom: 100px;
+    }
+    div.intro{
+        clip-path: polygon(0 0, 100% 0, 100% calc(100%), 0 100%);
+    }
+    div.intro, div.newuser_wrapper{
+        width: 50%;
+        background: none;
+        padding: 0;
+    }
+    @keyframes color{
+        0%{
+            background-position: 0 50%;
+        }
+        50%{
+            background-position: 100% 50%;
+        }
+        100%{
+            background-position: 0 50%;
+        }
+    }
+    #nav-sm{
+        display: none;
+    }
+    #nav-lg > h3{
+        font-size:2rem;
+    }
+    #nav-lg{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+    }
+    header{
+        margin:0;
+    }
+    div.newuser_container{
+        margin: 0;
+    }
+    div.newuser_wrapper{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+    /** section two media queries **/
+    section.two{
+        text-align: left;
+        margin-top: 10vw;
+    }
+    section.two-child{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    section.features-wrapper{
+        margin: 0;
+        text-align: left !important;
+    }
+    div.features{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    div.features > h3{
+        text-align: left;
+        font-size: 2rem;
+    }
+    
+    section.features-wrapper{
+        width: 40%;
+    }
+    div.container{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 50%;
+    }
+
+    /* section three */
+    section.three-child{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+    }
+    div.card{
+        width: 40%;
+    }
+    section.benefits{
+        width: 40%;
+    }
+    div.benefit{
+        display: flex;
+        margin: 0;
+        padding: 1rem 0;
+    }
+    section.three{
+        padding: 3rem 5%;
+        /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+    }
+
+}
+
+@media (min-width:1000px) {
+    div.intro, div.newuser_wrapper{
+        width: 40%;
+    }
+    section.one{
+        padding-top: 1rem;
+    }
+    section.one-child{
+        padding-top: 3rem;
+    }
+    section.two > h1{
+        font-size: 3rem;
+    }
+}

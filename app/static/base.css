@@ -1,0 +1,133 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 12s ease-in-out infinite;
+}
+
+@keyframes color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+div.form {
+  background-color: #fff;
+  border-radius: 7px;
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 1rem 1rem 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+input[type=email], input[type=password], input[type=text] {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+input[type=email], input[type=text], input[type=password] {
+  margin-bottom: 10px;
+}
+
+p.header {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+div.form_concern {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+div.form_concern > a {
+  text-decoration: none;
+}
+
+#login_submit, input[type=submit] {
+  margin-top: 80px;
+  background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 12s ease-in-out infinite;
+  width: 100%;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a.return {
+  position: absolute;
+  top: 5%;
+  left: 3%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-content: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+a.return > img {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  color: #000;
+}
+
+/* Register.html */
+main {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 12s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.side-form {
+  background-color: #fff;
+  border-radius: 7px;
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 1rem 1rem 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+section.side-form p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+#register_submit {
+  margin-top: 40px;
+}
+
+/*# sourceMappingURL=base.css.map */

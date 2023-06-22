@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<a href="{{ url_for('home' )}}" class="return"><img src="{{ url_for('static', filename='images/back.svg')}}" alt="Go back"> Back</a>
+
+<main>
+    <section class="side-bg"></section>
+    <section class="side-form">
+    <p>REGISTER</p>
+    <form action="" id="register">
+        <input type="text" name="name" placeholder="Fullname">
+        {% if email %}
+        <input type="email" name="email" placeholder="Email address" value="{{ title }}">
+        {% else %}
+        <input type="email" name="email" placeholder="Email address">
+        {% endif %}
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="repeat_password" placeholder="Repeat Password">
+
+        <input type="submit" name="submit" value="REGISTER" id="register_submit">
+
+    </form>
+    </section>
+</main>
+
+{% endblock %}

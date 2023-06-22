@@ -1,0 +1,36 @@
+@media(min-width: 600px){
+    div.form{
+        width: 450px;
+    }
+}
+
+
+/** Register html media */
+
+@media(min-width:650px){
+    main{
+        background: none;
+        display: flex;
+    }
+    .side-bg,.side-form{
+        width: 50%;
+        height: 100vh;
+    }
+    section.side-form{
+        width: 50%;
+        height: 100vh;
+        border-radius: 0;
+    }
+    .side-bg{
+        background: linear-gradient(45deg, #d2001a, #7462ff,#f48e21,#23d5ab);
+        background-size: 300% 300%;
+        animation: color 12s ease-in-out infinite;
+    }
+}
+
+
+@media(min-width: 760px){
+    #register > input{
+        width: 70%;
+    }
+}
