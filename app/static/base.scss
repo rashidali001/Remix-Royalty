@@ -125,6 +125,12 @@ section.side-form{
     }
 }
 
+#error, #email-error{
+    color: red;
+    font-size: 1rem;
+    display: none;
+}
+
 #register_submit{
     margin-top: 40px;
 }

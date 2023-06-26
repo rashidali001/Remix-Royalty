@@ -128,7 +128,6 @@ section.side-form p {
 
 #error, #email-error {
   color: red;
-  font-size: 1rem;
   display: none;
 }
 
@@ -136,4 +135,4 @@ section.side-form p {
   margin-top: 40px;
 }
 
-/*# sourceMappingURL=base.css.map */
+/*# sourceMappingURL=base.csslear.map */

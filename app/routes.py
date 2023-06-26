@@ -1,7 +1,7 @@
 from app import app, login
 from app.models import User
 from werkzeug.urls import url_parse
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import current_user, login_user, logout_user, login_required
 
 
@@ -48,6 +48,20 @@ def login():
 def register():
     return render_template("register.html", title="register")
 
+'''
+checking if email already exists
+'''
+@app.route("/check_email", methods=["POST"])
+def check_email():
+    email = request.form.get("email")
+
+    user = User.query.filter_by(email=email).first()
+
+    if user:
+        return jsonify({'message':'sucess'}), 200
+    else:
+        return jsonify({'message':'error'}), 500
+
 
 @app.route("/user")
 @login_required
@@ -64,3 +78,4 @@ def user():
 def logout():
     logout_user()
     return redirect("/login")
+
