@@ -48,6 +48,7 @@ $(document).ready(function(){
     $("#register").submit(function(e){
         e.preventDefault();
 
+        let username = $("#name").val();
         let email = $("#email").val();
         let password = $("#password").val();
         let repeat_password = $("#repeat-password").val();
@@ -64,7 +65,21 @@ $(document).ready(function(){
                     repeat_password:repeat_password
                 },
                 success:function(){
+                    $.ajax({
+                        url:"/register",
+                        method:"post",
+                        contentType:"application/json",
+                        dataType:"json",
+                        data: JSON.stringify({
+                            username:username,
+                            email:email,
+                            password:password,
+                        }),
+                        success: function(response){
+                            window.location.href = response.redirect;
 
+                        }
+                    })
                 },
                 error:function(){
                     $("#email-error").show();

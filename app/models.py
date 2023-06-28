@@ -5,6 +5,7 @@ from app import db
 class User(UserMixin, db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
+    username=db.Column(db.String(72), index=True)
     email = db.Column(db.String(72), index=True, unique=True)
     password_hash = db.Column(db.String(72))
 
@@ -16,5 +17,5 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, pwd)
     
     def __repr__ (self):
-        return f"<user.{self.email}>"
+        return f"<user.{self.username}>"
     

@@ -1,4 +1,4 @@
-from app import app, login
+from app import app, login, db
 from app.models import User
 from werkzeug.urls import url_parse
 from flask import render_template, request, redirect, url_for, jsonify
@@ -31,7 +31,6 @@ def login():
         user = User.query.filter_by(email=email).first()
 
         if not user or not user.check_password(password):
-            print("Rejected")
             return redirect("/login")
 
         login_user(user)
@@ -39,28 +38,51 @@ def login():
         if not next_page or url_parse(next_page).netloc != "":
             next_page = url_for("user")            
         return redirect(next_page)
-        return render_template("user.html")
+    
 
     return render_template("login.html", title="login")
 
 
-@app.route("/register")
+@app.route("/register", methods=["POST", "GET"])
 def register():
+    if request.method == "POST":
+        data = request.json
+
+        name = data.get("username")
+        email = data.get("email")
+        password = data.get("password")
+
+        # Creating new user into the database
+        user = User()
+        user.username = name
+        user.email = email
+        user.set_password(password)
+
+        db.session.add(user)
+        db.session.commit()
+
+        # logging the user in
+        login_user(user)
+        return jsonify(redirect=url_for("user"))
+        
+
     return render_template("register.html", title="register")
 
 '''
 checking if email already exists
 '''
+
+# tomorrow make this enter users in dashboard
 @app.route("/check_email", methods=["POST"])
 def check_email():
     email = request.form.get("email")
-
     user = User.query.filter_by(email=email).first()
 
-    if user:
-        return jsonify({'message':'sucess'}), 200
-    else:
-        return jsonify({'message':'error'}), 500
+    if user is None:
+        return jsonify({'message':'success'}), 200
+    
+    if user is not None:
+        return jsonify({"message":"error"}), 500
 
 
 @app.route("/user")
@@ -70,7 +92,6 @@ def user():
         return redirect("/login")
     
     print(current_user.email)
-
     return render_template("user.html")
 
 
