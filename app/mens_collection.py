@@ -10,6 +10,9 @@ class menscollection(db.Model):
     trousers = db.relationship("trousers", backref="menscollection", lazy="dynamic")
     jeans = db.relationship("jeans", backref="menscollection", lazy="dynamic")
 
+    def __repr__(self):
+        return f"<{self.name}>"
+
 # Men's collection categories
 
 class shirts(db.Model):

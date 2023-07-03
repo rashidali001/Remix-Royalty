@@ -13,7 +13,18 @@ $(document).ready(function(){
     $("#menscollection-link").click((e)=>{
         e.preventDefault();
 
-        
+        $.ajax({
+            url:"/get_men_relationships",
+            method:"post",
+            success:function(response){
+                alert(response);
+
+            }
+        })
+
+
+
+
     })
     
 })

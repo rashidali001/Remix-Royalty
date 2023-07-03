@@ -12,7 +12,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = "login"
 
-from app import routes, models, mens_collection
+from app import routes, models, mens_collection, routes2
 
 @login.user_loader
 def load_user(id):
