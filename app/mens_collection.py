@@ -25,6 +25,8 @@ class shirts(db.Model):
     description = db.Column(db.String(100))
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
 
+    def __repr__():
+        return f"<{shirts.__tablename__}"
 
 
 class trousers(db.Model):
@@ -40,6 +42,9 @@ class trousers(db.Model):
     description = db.Column(db.String(100))
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
 
+    def __repr__():
+        return f"<{trousers.__tablename__}>"
+
 class tshirts(db.Model):
     __tablename__ = "tshirts"
     id = db.Column(db.Integer, primary_key=True)
@@ -53,6 +58,9 @@ class tshirts(db.Model):
     description = db.Column(db.String(100))
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
 
+    def __repr__():
+        return f"<{tshirts.__tablename__}>"
+
 class jeans(db.Model):
     __tablename__ = "jeans"
     id = db.Column(db.Integer, primary_key=True)
@@ -65,3 +73,6 @@ class jeans(db.Model):
     mimetype = db.Column(db.Text, nullable=False)
     description = db.Column(db.String(100))
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
+
+    def __repr__():
+        return f"<{jeans.__tablename__}>"
