@@ -1,5 +1,6 @@
 from app import app, db
 from app.models import User
+from app.mens_collection import menscollection
 
 app.app_context().push()
 

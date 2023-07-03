@@ -15,10 +15,15 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/admin")
+@app.route("/admin", methods=["POST","GET"])
 def admin():
+    if request.method == "POST":
+        return redirect("/dashboard")
     return render_template("admin.html", title="admin")
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -72,7 +77,6 @@ def register():
 checking if email already exists
 '''
 
-# tomorrow make this enter users in dashboard
 @app.route("/check_email", methods=["POST"])
 def check_email():
     email = request.form.get("email")
