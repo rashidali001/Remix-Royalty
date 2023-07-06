@@ -84,6 +84,26 @@ $(document).ready(function(){
         $(".add-collection-data").css('display','flex');
     })
 
+    // When add tshirt button is clicked bring out form
+
+    $(".add-data-btn").click(function(e){
+        
+
+        $(".add-collection-form").css("display","flex");
+        let add_text = $(".add-data-btn").find("p").text();
+        $("form").submit(function(e){
+            e.preventDefault();
+            console.log(add_text);
+        })
+
+        
+        
+    })
+    // Cancel button to close form
+    $("#cancel").click(function(e){
+        $("#add-form").hide();
+    })
+    
 
 
 
