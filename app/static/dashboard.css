@@ -165,5 +165,11 @@ div.collection-data div.side-data div.add-collection-data div.add-data-btn:hover
   color: #fff;
   cursor: pointer;
 }
+div.collection-data div.side-data-table {
+  margin-top: 1rem;
+}
+div.collection-data div.side-data-table .table-header > td {
+  text-transform: uppercase;
+}
 
 /*# sourceMappingURL=dashboard.css.map */

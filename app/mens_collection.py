@@ -21,11 +21,13 @@ class shirts(db.Model):
     name = db.Column(db.String(64), index=True)
     barcode_no = db.Column(db.String(100) , index=True)
     price = db.Column(db.Integer)
-    size = db.Column(db.String(5), index=True)
+    size_string = db.Column(db.String(5), index=True, nullable=True)
+    size_no = db.Column(db.Integer, index=True, nullable=True)
     image = db.Column(db.Text, nullable=False, unique=True)
     image_name = db.Column(db.Text, nullable=False)
     mimetype = db.Column(db.Text, nullable=False)
     description = db.Column(db.String(100))
+    quantity = db.Column(db.Integer)
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
 
     def __repr__(self):
@@ -38,11 +40,13 @@ class trousers(db.Model):
     name = db.Column(db.String(64), index=True)
     barcode_no = db.Column(db.String(100), index=True)
     price = db.Column(db.Integer)
-    size = db.Column(db.String(5), index=True)
+    size_string = db.Column(db.String(5), index=True, nullable=True)
+    size_no = db.Column(db.Integer, index=True, nullable=True)
     image = db.Column(db.Text, nullable=False, unique=True)
     image_name = db.Column(db.Text, nullable=False)
     mimetype = db.Column(db.Text, nullable=False)
     description = db.Column(db.String(100))
+    quantity = db.Column(db.Integer)
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
 
     def __repr__(self):
@@ -54,11 +58,13 @@ class tshirts(db.Model):
     name = db.Column(db.String(64), index=True)
     barcode_no = db.Column(db.String(100), index=True)
     price = db.Column(db.Integer)
-    size = db.Column(db.String(5), index=True)
+    size_string = db.Column(db.String(5), index=True, nullable=True)
+    size_no = db.Column(db.Integer, index=True, nullable=True)
     image = db.Column(db.Text, nullable=False, unique=True)
     image_name = db.Column(db.Text, nullable=False)
     mimetype = db.Column(db.Text, nullable=False)
     description = db.Column(db.String(100))
+    quantity = db.Column(db.Integer)
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
 
     def __repr__(self):
@@ -70,12 +76,16 @@ class jeans(db.Model):
     name = db.Column(db.String(64), index=True)
     barcode_no = db.Column(db.String(100), index=True)
     price = db.Column(db.Integer)
-    size = db.Column(db.String(5), index=True)
+    size_string = db.Column(db.String(5), index=True, nullable=True)
+    size_no = db.Column(db.Integer, index=True, nullable=True)
     image = db.Column(db.Text, nullable=False, unique=True)
     image_name = db.Column(db.Text, nullable=False)
     mimetype = db.Column(db.Text, nullable=False)
     description = db.Column(db.String(100))
+    quantity = db.Column(db.Integer)
     menscollection_id = db.Column(db.Integer, db.ForeignKey('menscollection.id'), nullable=False)
 
     def __repr__(self):
         return f"<{self.__tablename__}>"
+
+

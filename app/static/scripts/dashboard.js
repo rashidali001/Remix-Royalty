@@ -38,10 +38,30 @@ $(document).ready(function(){
                 let para = $("<p></p>").text(collection_name);
                 $(".add-data-btn").append(para);
                 $(".add-collection-data").css("display","flex");
-            }
 
+                let data = { name: collection_name};
+                
+                // RETRIVING TABLE NAMES OF THE FIRST SELECTED COLLECTION NAME
+                $.ajax({
+                    url:"/field_names",
+                    type:"POST",
+                    data:JSON.stringify(data),
+                    contentType:"application/json",
+                    success:function(response){
+                        $(".table-header").empty();
+                        for (const key in response) {
+                            let td = $("<td></td").text(response[key]);
+                            $(".table-header").append(td);
 
+                        }
+                    }
+                    
+
+                })
+                // END OF RETRIVING TABLE NAMES
+            }       
         }) 
+
     })
 
     // When user clicks on the links -> add and active  class and creating add button

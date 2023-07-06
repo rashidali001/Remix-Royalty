@@ -178,5 +178,16 @@ div.collection-data{
             }
         }
     }
+
+    div.side-data-table{
+        margin-top: 1rem;
+
+        .table-header > td{
+            text-transform: uppercase;
+        }
+    }
+
+    /* ADD COLLECTION FORM */
+    
 }
 
