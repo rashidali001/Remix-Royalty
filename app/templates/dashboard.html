@@ -62,10 +62,10 @@
                     </span>
                 </div>
                 <div id="collection">
-                    <a href="#" class="collection-link">Men's Collection</a>
-                    <a href="#" class="collection-link">Women's Collection</a>
-                    <a href="#" class="collection-link">Children's Collection</a>
-                    <a href="#" class="collection-link">Accessories</a>
+                    <a href="#" class="collection-link" data-value="menscollection">Men's Collection</a>
+                    <a href="#" class="collection-link" data-value="womenscollection">Women's Collection</a>
+                    <a href="#" class="collection-link" data-value="childrenscollection">Children's Collection</a>
+                    <a href="#" class="collection-link" data-value="accessories">Accessories</a>
                 </div>             
             </div>
         </div>
@@ -119,32 +119,32 @@
 
                         </div>
                         <div id="collection-form-data">
-                            <form id="form-data">
+                            <form  id="form-data" enctype="multipart/form-data" method="post" autocomplete="off">
                                 <div class="form-row mb-2">
                                     <div class="col">
                                         <label for="name_of_product">Name of product:</label>
-                                        <input type="text" id="name_of_product" class="form-control">
+                                        <input type="text" id="name_of_product" class="form-control" required name="name_of_product">
                                     </div>
                                     <div class="col">
                                         <label for="barcode">Barcode Number</label>
-                                        <input type="number" id="barcode" class="form-control">
+                                        <input type="number" name="barcode" id="barcode" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="form-row mb-2">
                                     <div class="col">
                                         <label for="price">Price</label>
-                                        <input type="number" id="price" class="form-control">
+                                        <input type="number" name="price" id="price" class="form-control" required>
                                     </div>
                                     <div class="col">
                                         <label for="quantity">Quantity</label>
-                                        <input type="number" id="quantity" class="form-control" value="1">
+                                        <input type="number" name="quantity" id="quantity" class="form-control" placeholder="1" required>
                                     </div>
                                 </div>
                                 <div class="form-row mb-2">
                                     <div class="col">
                                         <label for="description">Description of product:</label>
-                                        <textarea type="textarea" id="description" class="form-control" rows="6"></textarea>
+                                        <textarea type="textarea" name="description" id="description" class="form-control" rows="6" required></textarea>
                                     </div>
                                     <div class="col mr-2">
                                         <div class="form-row">      
@@ -163,9 +163,9 @@
                                         </div>
 
                                         <div class="form-row">
-                                            <div class="form-group">
+                                            <div class="form-group" id="size-no-wrapper">
                                                 <label for="size_no">Size no:</label>
-                                                <input type="number" id="size_no" class="form-control">
+                                                <input type="number" name="size_no" id="size_no" class="form-control">
                                             </div>
 
                                         </div>
@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Choose Image</label>
-                                    <input type="file">
+                                    <input type="file" name="image" required id="image">
                                 </div>
 
                                 <!--SUBMIT GROUP -->

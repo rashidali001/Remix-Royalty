@@ -1,3 +1,8 @@
+let DB_COLLECTION;
+let SPECIFIC_COLLECTION;
+
+/* When the document is ready, do the following functions: */
+
 $(document).ready(function(){
 
 
@@ -16,14 +21,18 @@ $(document).ready(function(){
         $(".collection-classes").empty();
         $(".collection-header").empty();
 
+        DB_COLLECTION = $(this).data("value");
         let link_text = $(this).text();
         collection_header = $(".collection-header");
-        let h2 = $("<h2></h2>").text(link_text)
+        let h2 = $("<h2></h2>").text(link_text);
         collection_header.append(h2);
+        data = { collection_name : DB_COLLECTION };
 
         $.ajax({
-            url:"/get_men_relationships",
+            url:"/get_relationships",
             method:"post",
+            data: JSON.stringify(data),
+            contentType:"application/json",
             success:function(response){
                 for (const key in response) {
                     let div = $("<div class='collection-classes-child'></div>");
@@ -34,14 +43,15 @@ $(document).ready(function(){
                 let first = $(".collection-classes-child").first();
                 first.addClass("active");
                 $(".add-data-btn").find("p").remove();
-                let collection_name = first.text();
-                let para = $("<p></p>").text(collection_name);
+                let category_name = first.text();
+                let para = $("<p></p>").text(category_name);
+                para.attr("data-value",category_name.toLowerCase());
                 $(".add-data-btn").append(para);
                 $(".add-collection-data").css("display","flex");
 
-                let data = { name: collection_name};
+                let data = { name: category_name };
                 
-                // RETRIVING TABLE NAMES OF THE FIRST SELECTED COLLECTION NAME
+                // RETRIVING TABLE NAMES OF THE FIRST SELECTED COLLECTION NAME (category_name)
                 $.ajax({
                     url:"/field_names",
                     type:"POST",
@@ -72,42 +82,98 @@ $(document).ready(function(){
         $(".collection-classes-child").removeClass("active")
         $(this).addClass("active");
 
-        let collection_name = $(this).text();
+        let category_name = $(this).text();
 
         $(".add-data-btn").find("p").remove();
 
-        let para = $("<p></p>").text(collection_name);
+        let para = $("<p></p>").text(category_name);
+        para.attr("data-value", category_name.toLowerCase());
         $(".add-data-btn").append(para);  
-
-        $(".add-collection-data").hide();
         
         $(".add-collection-data").css('display','flex');
+
+        let data = { name: category_name };
+                
+        // RETRIVING TABLE NAMES OF THE FIRST SELECTED COLLECTION NAME (category_name)
+        $.ajax({
+            url:"/field_names",
+            type:"POST",
+            data:JSON.stringify(data),
+            contentType:"application/json",
+            success:function(response){
+                $(".table-header").empty();
+                for (const key in response) {
+                    let td = $("<td></td").text(response[key]);
+                    $(".table-header").append(td);
+
+                }
+            }
+            
+
+        })
     })
 
-    // When add tshirt button is clicked bring out form
+    // When add button is clicked bring out form
 
-    $(".add-data-btn").click(function(e){
-        
-
+    $(".add-data-btn").click(function(e){       
+        let category = $(this).find("p").data("value");
         $(".add-collection-form").css("display","flex");
-        let add_text = $(".add-data-btn").find("p").text();
-        $("form").submit(function(e){
-            e.preventDefault();
-            console.log(add_text);
-        })
-
-        
+       
+       
         
     })
     // Cancel button to close form
     $("#cancel").click(function(e){
         $("#add-form").hide();
     })
+
+    // when size no is clicked
+    $("#size-no-wrapper").click(function(e){
+        e.preventDefault();
+        $(this).find("input").prop("disabled", false);
+        $("#size").attr("disabled","disabled");
     
+    })
+
+    // when select element is clicked
+    $("#size").click(function(e){
+        e.preventDefault();
+        $(this).prop("disabled", false);
+        $("#size-no-wrapper").find("input").prop("disabled", true);
+    })
+    
+            // On submit send data to the database 
+            $("#form-data").submit(function(e){
+                e.preventDefault();
+
+                let category = $(".add-data-btn").find("p").data("value")
+
+                let formData = new FormData(this);
+
+                formData.append("category", category);
+                formData.append("db_collection", DB_COLLECTION)
+
+               
+                $.ajax({
+                    url:"/add_collection",
+                    type:"post",
+                    data: formData,
+                    contentType:false,
+                    processData:false,
+                    success: function(){
+                        
+                    }
+                })
+    
+    
+    
+                
+        
+            })
 
 
 
-
+    
 
 
 
