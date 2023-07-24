@@ -2,7 +2,7 @@ from app import app, db
 from flask import redirect, render_template, jsonify, request
 from werkzeug.utils import secure_filename
 from app.mens_collection import menscollection, tshirts, trousers, jeans, shirts
-from app.womenscollection import womenscollection
+from app.womenscollection import womenscollection, blouse, dress
 from app.childrenscollection import childrenscollection
 from app.accessories import accessories
 
@@ -18,7 +18,9 @@ models = {
         "tshirts":tshirts,
         "shirts":shirts,
         "jeans":jeans,
-        "trousers":trousers        
+        "trousers":trousers,
+        "blouse":blouse,
+        "dress":dress       
 }
 
 
