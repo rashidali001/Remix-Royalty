@@ -2,9 +2,9 @@ from app import app, db
 from flask import redirect, render_template, jsonify, request
 from werkzeug.utils import secure_filename
 from app.mens_collection import menscollection, tshirts, trousers, jeans, shirts
-from app.womenscollection import womenscollection, blouse, dress
-from app.childrenscollection import childrenscollection
-from app.accessories import accessories
+from app.womenscollection import womenscollection, blouse_w, dress_w, trouser_w, jeans_w
+from app.childrenscollection import childrenscollection, shirts_c, dress_c, tshirts_c, shorts_c
+from app.accessories import accessories, watches_a, perfumes_a, shoes_a
 
 
 DB_collection = {
@@ -15,12 +15,22 @@ DB_collection = {
 }
 
 models = {
-        "tshirts":tshirts,
+        "tshirts":tshirts,      # men's collection
         "shirts":shirts,
         "jeans":jeans,
         "trousers":trousers,
-        "blouse":blouse,
-        "dress":dress       
+        "blouse_w":blouse_w,    # womens's collection
+        "dress_w":dress_w ,
+        "trouser_w": trouser_w,
+        "jeans_w" : jeans_w,
+        "watches_a" : watches_a,    # accessories
+        "perfumes_a" : perfumes_a,
+        "shoes_a" : shoes_a,
+        "shirts_c" : shirts_c,  #children's collection
+        "dress_c" : dress_c,
+        "tshirts_c" : tshirts_c,
+        "short_c" : shorts_c
+
 }
 
 
@@ -51,7 +61,7 @@ def get_relationships():
 def field_names():
     
     tables_names = ["name", "barcode_no","price","quantity"]
-    data = request.get_json()
+    data = request.get_json() # Gets data from ajax in json format
     name = data["name"].lower()
 
     for model in models:
