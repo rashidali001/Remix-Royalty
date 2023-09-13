@@ -20,3 +20,7 @@ Authors
 Rashid <rashidestonian@gmail.com> 
 
 github - rashidali001
+
+Overview
+---------
+<img width="960" alt="Remix pic" src="https://github.com/rashidali001/Remix-Royalty/assets/69434556/f00fafbe-89c5-4b8a-9bf4-4762ec2be375">
